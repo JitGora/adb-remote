@@ -218,7 +218,7 @@
     <!-- Include FontAwesome -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
     <script>
-        const socket = new WebSocket("ws://192.168.0.223:8765");
+        const socket = new WebSocket("ws://ipaddress:8765"); // add address of Web Socket
         let lastKeyPress = 0; // Track the last key press time
 
         socket.onopen = () => {
