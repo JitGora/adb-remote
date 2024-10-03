@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Navigation Buttons</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f0f0f0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .button-group {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 25px;
+        }
+
+        .button {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background-color: #f5f5f5;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 24px;
+            color: #333;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .button:hover {
+            background-color: #e0e0e0;
+            transform: scale(1.1);
+        }
+
+        /* Power, Home, Back buttons */
+        .button.power {
+            background-color: #ff4747;
+            color: #fff;
+        }
+
+        .button.power:hover {
+            background-color: #e63b3b;
+        }
+
+        .button.home {
+            background-color: #4caf50;
+            color: #fff;
+        }
+
+        .button.home:hover {
+            background-color: #3e9e40;
+        }
+
+        .button.back {
+            background-color: #f44336;
+            color: #fff;
+        }
+
+        .button.back:hover {
+            background-color: #e03128;
+        }
+
+        .button.volume-up, .button.volume-down, .button.mute {
+            background-color: #007bff;
+            color: #fff;
+        }
+
+        .button.volume-up:hover, .button.volume-down:hover {
+            background-color: #0069d9;
+        }
+
+        .button.mute {
+            background-color: #ffc107;
+            color: #fff;
+        }
+
+        .button.mute:hover {
+            background-color: #e0a800;
+        }
+
+        .dpad-container {
+            position: relative;
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            background-color: #f5f5f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 25px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .dpad-button {
+            width: 50px;
+            height: 50px;
+            background-color: #fff;
+            border: none;
+            position: absolute;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%;
+            font-size: 22px;
+            color: #333;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .dpad-button:hover {
+            background-color: #e0e0e0;
+        }
+
+        .dpad-button.up {
+            top: 15px;
+        }
+
+        .dpad-button.down {
+            bottom: 15px;
+        }
+
+        .dpad-button.left {
+            left: 15px;
+        }
+
+        .dpad-button.right {
+            right: 15px;
+        }
+
+        .dpad-center {
+            width: 70px;
+            height: 70px;
+            background-color: #ccc;
+            border-radius: 50%;
+            border: none;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 26px;
+            color: #333;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .dpad-center:hover {
+            background-color: #b3b3b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="button-group">
+            <button class="button power" onclick="sendKeyEvent('26')">
+                <i class="fas fa-power-off"></i>
+            </button>
+        </div>
+
+        <div class="dpad-container">
+            <button class="dpad-button up" onclick="sendKeyEvent('19')">
+                <i class="fas fa-chevron-up"></i>
+            </button>
+            <button class="dpad-button down" onclick="sendKeyEvent('20')">
+                <i class="fas fa-chevron-down"></i>
+            </button>
+            <button class="dpad-button left" onclick="sendKeyEvent('21')">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <button class="dpad-button right" onclick="sendKeyEvent('22')">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+            <button class="dpad-center">
+                <i class="fas fa-circle"></i>
+            </button>
+        </div>
+
+        <div class="button-group">
+            <button class="button home" onclick="sendKeyEvent('3')">
+                <i class="fas fa-home"></i>
+            </button>
+            <button class="button back" onclick="sendKeyEvent('4')">
+                <i class="fas fa-arrow-left"></i>
+            </button>
+        </div>
+
+        <div class="button-group">
+            <button class="button volume-up" onclick="sendKeyEvent('24')">
+                <i class="fas fa-volume-up"></i>
+            </button>
+            <button class="button volume-down" onclick="sendKeyEvent('25')">
+                <i class="fas fa-volume-down"></i>
+            </button>
+            <button class="button mute" onclick="sendKeyEvent('164')">
+                <i class="fas fa-volume-mute"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- Include FontAwesome -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
+    <script>
+        const socket = new WebSocket("ws://192.168.0.223:8765");
+        let lastKeyPress = 0; // Track the last key press time
+
+        socket.onopen = () => {
+            console.log("WebSocket connection established");
+        };
+
+        socket.onmessage = (event) => {
+            console.log("Message from server:", event.data);
+        };
+
+        socket.onerror = (error) => {
+            console.error("WebSocket error:", error);
+        };
+
+        function sendKeyEvent(keyEvent) {
+            const now = Date.now();
+            if (now - lastKeyPress >= 500) { // Check if 250ms have passed since last press
+                if (socket.readyState === WebSocket.OPEN) {
+                    socket.send(keyEvent);
+                    lastKeyPress = now; // Update lastKeyPress
+                } else {
+                    console.error("WebSocket is not open");
+                }
+            }
+        }
+    </script>
+</body>
+</html>
